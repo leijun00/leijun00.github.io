@@ -1,0 +1,16 @@
+# Site navigation links
+
+- title: Home
+  url: /
+  excerpt: 
+  image: 
+
+- title: Data Mining
+  url: /datamining/
+
+- title: Math
+  url: /math/
+
+- title: About Me
+  url: /about/
+
