@@ -2,41 +2,41 @@
 layout: default
 ---
 
-<div id="main" role="main">			
-	<article class="wrap" itemscope itemtype="http://schema.org/Article">
-		{% if page.image.feature %}
-		<div class="page-feature">
-			<div class="page-image">
-				<img src="{{ site.url }}/images/{{ page.image.feature }}" class="page-feature-image" alt="{{ page.title }}" itemprop="image">
-				{% if page.image.credit %}{% include image-credit.html %}{% endif %}
-			</div><!-- /.page-image -->
-		</div><!-- /.page-feature -->
-		{% endif %}
-		<div class="page-title">
-			<h1>{{ page.title }}</h1>
-		</div>
-		<div class="inner-wrap">
+<div id="main" role="main">            
+    <article class="wrap" itemscope itemtype="http://schema.org/Article">
+        {% if page.image.feature %}
+        <div class="page-feature">
+            <div class="page-image">
+                <img src="{{ site.url }}/images/{{ page.image.feature }}" class="page-feature-image" alt="{{ page.title }}" itemprop="image">
+                {% if page.image.credit %}{% include image-credit.html %}{% endif %}
+            </div><!-- /.page-image -->
+        </div><!-- /.page-feature -->
+        {% endif %}
+        <div class="page-title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="inner-wrap">
             {% if page.toc %}
-			<nav class="toc"></nav><!-- /.toc -->
+            <nav class="toc"></nav><!-- /.toc -->
             {% endif %}
-			<div id="content" class="page-content" itemprop="articleBody">
-				{{ content }}
-				<hr />
-				<footer class="page-footer">
-					{% if page.categories %}{% include page-author.html %}{% endif %}
-					{% if page.share != false %}{% include share-this.html %}{% endif %}
-					{% include page-meta.html %}
-				</footer><!-- /.footer -->
+            <div id="content" class="page-content" itemprop="articleBody">
+                {{ content }}
+                <hr />
+                <footer class="page-footer">
+                    {% if page.categories %}{% include page-author.html %}{% endif %}
+                    {% if page.share != false %}{% include share-this.html %}{% endif %}
+                    {% include page-meta.html %}
+                </footer><!-- /.footer -->
                 {% include add-this.html %}
-				<aside>
-					{% include comments.html %}
-				</aside>
-			</div><!-- /.content -->
+                <aside>
+                    {% include comments.html %}
+                </aside>
+            </div><!-- /.content -->
         </div><!-- /.inner-wrap -->
         <div class="ads">{% include about-me.html %}</div>
-	</article><!-- ./wrap -->
+    </article><!-- ./wrap -->
 </div><!-- /#main -->
-    <script>
+<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -45,18 +45,9 @@ layout: default
       ga('create', 'UA-57330114-1', 'auto');
       ga('send', 'pageview');
 
-    </script>
+</script>
 
-<script language="JavaScript"><!--
-        if (navigator.userAgent.match(/iPhone|iPod|Android|IEMobile/i)) {
-            document.write("<link href=\"/media/css/screen-mobil.css\" rel=\"stylesheet\">");
-        } else {
-            document.write("<link href=\"/media/css/screen.css\" rel=\"stylesheet\">");
-        }
-        // -->
-    </script>
-
-   <script type="text/javascript"
+<script type="text/javascript"
      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
      MathJax.Hub.Config({
        extensions: ["tex2jax.js","TeX/noErrors.js","TeX/AMSsymbols.js"],
@@ -68,8 +59,8 @@ layout: default
        },
        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
        "HTML-CSS": {availableFonts:["TeX"]},
-	   });
+       });
       MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-   </script>
+</script>
 
 
