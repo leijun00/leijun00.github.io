@@ -1,40 +1,17 @@
-# Site wide configuration
-
-title: "Jun's Tech Blog"
-description: "Collection of everythings I want to record down especially for tech"
-logo: logo.jpg # 120x120 px default image used for Twitter summary card
-teaser: /teaser/default.jpg # 400x250 px default teaser image used in image archive grid
-locale:
-url:
-
-default:
-    -
-        scope:
-            type: "article"
-        values:
-            ads: false
-            toc: false 
-
-
-# Jekyll configuration
-
-sass:
-    sass_dir: _sass
-    style: compressed
-permalink: /:year/:month/:title/
-markdown: kramdown
-kramdown:
-    input: GFM
+#site setting
+title: 程序员雷军
+email: leijun00@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This is a Chinese blog about R and python study by Kagami Yuan, patent engineer internship.
+baseurl: "" # the subpath of your site, e.g. /blog/
+#url: "http://yourdomain.com" # the base hostname & protocol for your site
+#twitter_username: jekyllrb
+github_username: leijun00
 highlighter: pygments
-gems:
-  - jekyll-sitemap
+paginate: 20
 
+markdown: kramdown
+permalink: /:year/:month/:title/
+author: Jun Lei
+#exclude: README.md
 
-# Site owner
-owner: 
-  name: 雷军
-  email: leijun00@gmail.com
-  bio: 
-  avatar: logo.jpg # 160x160 px image for author byline
-
-exclude: ["lib", "config.rb", ".sass-cache", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "*.sublime-project", "*.sublime-workspace", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "node_modules", "Gruntfile.js", "package.json"]
