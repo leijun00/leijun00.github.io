@@ -2,7 +2,6 @@
 layout: archive
 permalink: /math/
 title: "Latest Posts in Math"
-excerpt: "I make living from IT"
 ---
 
 <div class="tiles">
