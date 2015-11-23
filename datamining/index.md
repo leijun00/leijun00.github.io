@@ -2,7 +2,6 @@
 layout: archive
 permalink: /datamining/
 title: "Latest Posts in Data Mining"
-excerpt: "I make living from IT"
 ---
 
 <div class="tiles">
