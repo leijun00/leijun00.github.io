@@ -6,7 +6,7 @@ categories:
 tags:
 - 信息论
 image:
-    teaser: /math/information_theory.png
+    teaser: /math/information_theory.jpg
 ---
 
 
