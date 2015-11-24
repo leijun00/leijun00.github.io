@@ -4,11 +4,12 @@ title: About
 permalink: /about/
 ---
 
-> 码畜， 欢迎一起交流各种技术问题.
+> 码畜，欢迎一起交流各种技术问题。
 
 ## Summary
 I graduated from Tsinghua university and got my bachelor degree in 2004.
-I am working on data analytics and data mining, especially social data. I have a very strong interest in algorithms, recommender system, ads, data mining and machine learning.
+I am working on computational advertsing, audience targeting and data mining.
+I have a very strong interest in algorithms, recommender system, ads, data mining and machine learning.
 
 ## Experience
 
