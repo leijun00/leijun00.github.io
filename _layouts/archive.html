@@ -33,4 +33,18 @@ layout: default
       ga('send', 'pageview');
 
     </script>
-
+<script type="text/javascript"
+     src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+     MathJax.Hub.Config({
+       extensions: ["tex2jax.js","TeX/noErrors.js","TeX/AMSsymbols.js"],
+       jax: ["input/TeX","output/HTML-CSS"],
+       tex2jax: {
+         inlineMath: [['$','$'],["\\(","\\)"]],
+         displayMath: [['\\[','\\]'], ['$$','$$']],
+         balanceBraces: true
+       },
+       TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+       "HTML-CSS": {availableFonts:["TeX"]},
+       });
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
