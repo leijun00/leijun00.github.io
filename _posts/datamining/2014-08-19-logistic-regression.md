@@ -260,12 +260,7 @@ $$
 > - 给定初值$$x^0$$和精度阈值$$\varepsilon$$，并令 $$B_0 = I, k := 0 $$
 > - 确定搜索方向 $$d_k = -B_k^{-1} g_k$$
 > - 求步长 $$\lambda_k$$，令$$s_k = \lambda_k d_k, x^{k+1} := x^k + s_k$$
-> - 如果
-$$
-||g_{k+1}|| < \varepsilon
-$$
-算法结束
-> - 否则计算 $$y_k = g_{k+1} - g_k$$
+> - 如果 $$ \| g_{k+1} \| < \varepsilon $$ 算法结束, 否则计算 $$y_k = g_{k+1} - g_k$$
 > - 计算 $$B_{k+1} = B_k + \frac {y_k y_k^T} {y_k^T s_k} - \frac {B_k s_k s_k^T B_k} {s_k^T B_k s_k}$$
 > - 令 $$k := k+1$$，转步骤2
 
@@ -355,5 +350,5 @@ $$
 6. <http://blog.csdn.net/itplus/article/details/21897443>
 
   [1]: http://en.wikipedia.org/wiki/Cumulative_distribution_function#Inverse_distribution_function_.28quantile_function.29
-  [2]: http://leijun00.github.io/2014/07/caculus/
+  [2]: /2014/07/caculus/
   [3]: http://blog.csdn.net/itplus/article/details/21897715
