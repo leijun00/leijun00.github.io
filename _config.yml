@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title: "Jun's Tech Blog"
-description: "Collection of everythings I want to record down especially for tech"
+description: "技术博客"
 logo: logo.jpg # 120x120 px default image used for Twitter summary card
 teaser: /teaser/default.jpg # 400x250 px default teaser image used in image archive grid
 locale:

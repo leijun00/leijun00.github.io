@@ -1,12 +1,12 @@
 ---
 layout: archive
-permalink: /math/
+permalink: /development/
 title: "最新文章"
 ---
 
 <div class="tiles">
 {% for post in site.posts %}
-    {% if post.categories contains 'math' %}
+    {% if post.categories contains 'development' %}
         {% include post-grid.html %}
     {% endif %}
 {% endfor %}

@@ -1,16 +1,19 @@
 # Site navigation links
 
-- title: Home
+- title: 主页
   url: /
   excerpt: 
   image: 
 
-- title: Data Mining
+- title: 数据挖掘
   url: /datamining/
 
-- title: Math
+- title: 数学
   url: /math/
 
-- title: About Me
+- title: 开发
+  url: /development/
+
+- title: 关于
   url: /about/
 
