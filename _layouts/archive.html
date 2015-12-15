@@ -32,14 +32,26 @@ layout: default
       ga('create', 'UA-57330114-1', 'auto');
       ga('send', 'pageview');
 
+  </script>
+
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+             var hm = document.createElement("script");
+               hm.src = "//hm.baidu.com/hm.js?138fcb8c5448d0003de5abef31cdd0b9";
+                 var s = document.getElementsByTagName("script")[0]; 
+                   s.parentNode.insertBefore(hm, s);
+
+                   })();
     </script>
+
 <script type="text/javascript"
      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
      MathJax.Hub.Config({
        extensions: ["tex2jax.js","TeX/noErrors.js","TeX/AMSsymbols.js"],
        jax: ["input/TeX","output/HTML-CSS"],
        tex2jax: {
-         inlineMath: [['$','$'],["\\(","\\)"]],
+         inlineMath: [['$','$'],['$$$','$$$'],["\\(","\\)"]],
          displayMath: [['\\[','\\]'], ['$$','$$']],
          balanceBraces: true
        },

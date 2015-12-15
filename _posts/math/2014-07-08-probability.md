@@ -531,7 +531,7 @@ $$
 ## 参考资料
 
 1. 概率论与数理统计 高等教育出版社
-2. Pattern Recognition and Machine Learning Chapter1,  Chapter2,  Appendix B
+2. Pattern Recognition and Machine Learning Chapter1,Chapter2,Appendix B
 
-  [1]: http://www. cs. cmu. edu/~aarti/Class/10701_Spring14/Intro_ML_Self_Evaluation. pdf
+  [1]: http://www.cs.cmu.edu/~aarti/Class/10701_Spring14/Intro_ML_Self_Evaluation.pdf
 
