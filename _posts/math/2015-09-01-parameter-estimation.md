@@ -27,8 +27,8 @@ image:
 $$
 \begin{equation}
 \begin{split}
-\mu_1 = E(X) = \mu \\
-\mu_2 = E(X^2) = D(X) + [E(X)]^2 = \mu^2 + \sigma^2
+\mu_1 &= E(X) = \mu \\
+\mu_2 &= E(X^2) = D(X) + [E(X)]^2 = \mu^2 + \sigma^2
 \end{split}
 \end{equation}
 $$
@@ -38,8 +38,8 @@ $$
 $$
 \begin{equation}
 \begin{split}
-A_1 = \frac {1}{n} \sum_{i=1}{  X_i = \overline {X } }\\ 
-A_2 = \frac {1}{n} \sum_{i=1}^n X_i^2
+A_1 &= \frac {1}{n} \sum_{i=1}{  X_i = \overline {X } }\\ 
+A_2 &= \frac {1}{n} \sum_{i=1}^n X_i^2
 \end{split}
 \end{equation}
 $$
@@ -57,8 +57,8 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\hat{\mu} = \overline {X} \\
-\hat {\sigma^2} = \frac {1}{n} \sum_{i=1}^{n}(X_i - \overline {X})^2
+\hat{\mu} &= \overline {X} \\
+\hat {\sigma^2} &= \frac {1}{n} \sum_{i=1}^{n}(X_i - \overline {X})^2
 \end{split}
 \end{equation}
 $$
@@ -93,7 +93,10 @@ $$
 
 $$
 \begin{equation}
-L(\theta | X) = p(x_1, x_2, \ldots, x_n |\theta) = \Pi_{i=1}^{n}p(x_i|\theta)
+\begin{split}
+L(\theta | X) &= p(x_1, x_2, \ldots, x_n |\theta) \\
+& = \Pi_{i=1}^{n}p(x_i|\theta)
+\end{split}
 \end{equation}
 $$
 
@@ -101,7 +104,10 @@ $$
 
 $$
 \begin{equation}
-\hat { \theta_{ML} } = argmax_{\theta} L(\theta | X) = argmax_{\theta} \sum_{X} \log p(X|\theta)
+\begin{split}
+\hat { \theta_{ML} } &= argmax_{\theta} L(\theta | X)
+& = argmax_{\theta} \sum_{X} \log p(X|\theta)
+\end{split}
 \end{equation}
 $$
 
@@ -111,7 +117,7 @@ $X$的概率密度为：
 
 $$
 \begin{equation}
-f(x; \mu, \sigma^2) = \frac {1}{\sqrt {2 \pi \sigma^2}} e^{-\frac {(x-\mu)^2}{2 \sigma^2}}
+f(x | \mu, \sigma^2) = \frac {1}{\sqrt {2 \pi \sigma^2}} e^{-\frac {(x-\mu)^2}{2 \sigma^2}}
 \end{equation}
 $$
 
@@ -128,8 +134,8 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\hat{\mu} = \overline {X} \\
-\hat {\sigma^2} = \frac {1}{n} \sum_{i=1}^{n}(X_i - \overline {X})^2
+\hat{\mu} &= \overline {X} \\
+\hat {\sigma^2} &= \frac {1}{n} \sum_{i=1}^{n}(X_i - \overline {X})^2
 \end{split}
 \end{equation}
 $$
@@ -140,9 +146,10 @@ $$
 $$
 \begin{equation}
 \begin{split}
-L = \log \Pi_{i=1}^{N} p(X_i=x_i | \theta) = \sum_{i=1}^{N} \log (X_i=x_i | \theta) \\
-= n^{(1)} \log p(X_i=1 | \theta) + n^{(0)} \log p(X_j=0 | \theta) \\
-= n^{(1)} \log \theta + n^{(0)} \log (1-\theta) \\
+L &= \log \Pi_{i=1}^{N} p(X_i=x_i | \theta) \\
+& = \sum_{i=1}^{N} \log (X_i=x_i | \theta) \\
+& = n^{(1)} \log p(X_i=1 | \theta) + n^{(0)} \log p(X_j=0 | \theta) \\
+& = n^{(1)} \log \theta + n^{(0)} \log (1-\theta) \\
 \end{split}
 \end{equation}
 $$
@@ -152,8 +159,8 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\frac {\partial L} {\partial \theta} = \frac {n^{(1)}} {\theta} - \frac {n^{(0)}} {1-\theta} = 0 \\
-\theta = { n^{(1)} \over {n^{(1)} + n^{(0)}} } = {12 \over 20} = 0.6
+\frac {\partial L} {\partial \theta} &= \frac {n^{(1)}} {\theta} - \frac {n^{(0)}} {1-\theta} = 0 \\
+\theta &= { n^{(1)} \over {n^{(1)} + n^{(0)}} } = {12 \over 20} = 0.6
 \end{split}
 \end{equation}
 $$
@@ -165,9 +172,10 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\hat {\theta_{MAP}} = argmax_{\theta}{ p(X | \theta)p(\theta) \over p(X)} \\
-= argmax_{\theta} p(X | \theta)p(\theta) = argmax_{\theta} {L(\theta | X) + \log p(\theta)} \\
-= argmax_{\theta} {\sum_X \log(p(x|\theta)) + \log p(\theta) }
+\hat {\theta_{MAP}} &= argmax_{\theta}{ p(X | \theta)p(\theta) \over p(X)} \\
+& = argmax_{\theta} p(X | \theta)p(\theta) \\
+& = argmax_{\theta} {L(\theta | X) + \log p(\theta)} \\
+& = argmax_{\theta} {\sum_X \log(p(x|\theta)) + \log p(\theta) }
 \end{split}
 \end{equation}
 $$
@@ -177,14 +185,22 @@ $$
 一般先验会选择似然函数的共轭先验，这样计算出来的后验概率和先验概率就是共轭分布，有关共轭分布的只是请参考 PRML 第二章[3]。这里我们选取 beta 分布作为 $\theta$ 的先验分布，令超参数 $\alpha = \beta = 5$：
 
 $$
-p(\theta | \alpha, \beta) = Beta(\theta | \alpha, \beta) = {1 \over B(\alpha, \beta)} \theta^{\alpha -1} (1-\theta)^{\beta -1}
+\begin{equation}
+\begin{split}
+p(\theta | \alpha, \beta) &= Beta(\theta | \alpha, \beta) \\
+& = {1 \over B(\alpha, \beta)} \theta^{\alpha -1} (1-\theta)^{\beta -1}
+\end{split}
+\end{equation}
 $$
 
 将这个式子带入（15）式，对 $\theta$ 求导，令导数为0：
 
 $$
 \begin{equation}
-{\partial \hat {\theta_{MAP}} \over \partial \theta} = {n^{(1)} \over \theta} - {n^{(0)} \over 1-\theta} + {\alpha -1 \over \theta} -{\beta -1 \over 1-\theta} = 0
+\begin{split}
+{\partial \hat {\theta_{MAP}} \over \partial \theta} &= {n^{(1)} \over \theta} - {n^{(0)} \over 1-\theta} + {\alpha -1 \over \theta} -{\beta -1 \over 1-\theta} \\
+& = 0
+\end{split}
 \end{equation}
 $$
 
@@ -193,8 +209,10 @@ $$
 $$
 \begin{equation}
 \begin{split}
-\hat {\theta_{MAP}} = \frac {n^{(1)} + \alpha -1 }{ n^{(1)} + n^{(0)} + \alpha + \beta -2 } = \frac {n^{(1)} + 4}{n^{(1)} + n^{(0)} + 8} \\
-= \frac {16} {28} = 0.571
+\hat {\theta_{MAP}} &= \frac {n^{(1)} + \alpha -1 }{ n^{(1)} + n^{(0)} + \alpha + \beta -2 } \\
+& = \frac {n^{(1)} + 4}{n^{(1)} + n^{(0)} + 8} \\
+& = \frac {16} {28} \\
+& = 0.571
 \end{split}
 \end{equation}
 $$
@@ -208,10 +226,10 @@ $$
 $$
 \begin{equation}
 \begin{split}
-p(\theta | X, \alpha, \beta) = \frac { \Pi_{i=1}^N p(X_i = x_i | \theta) p(\theta | \alpha, \beta) } { \sum_{\theta} \Pi_{i=1}^N p(X_i = x_i | \theta) p(\theta | \alpha, \beta) } \\
-= \frac {\theta ^ {n^{(1)}} (1-\theta)^{n^{(0)}} {1 \over B(\alpha, \beta)} \theta ^ {\alpha -1} (1-\theta)^{\beta -1} } {Z} \\
-= \frac { \theta ^{ n^{(1)} + \alpha -1 } (1-\theta)^{n^{(0)} + \beta -1} } {B(n^{(1)}+\alpha, n^{(0)}+\beta)} \\
-= Beta(\theta | n^{(1)}+\alpha, n^{(0) + \beta})
+p(\theta | X, \alpha, \beta) &= \frac { \Pi_{i=1}^N p(X_i = x_i | \theta) p(\theta | \alpha, \beta) } { \sum_{\theta} \Pi_{i=1}^N p(X_i = x_i | \theta) p(\theta | \alpha, \beta) } \\
+& = \frac {\theta ^ {n^{(1)}} (1-\theta)^{n^{(0)}} {1 \over B(\alpha, \beta)} \theta ^ {\alpha -1} (1-\theta)^{\beta -1} } {Z} \\
+& = \frac { \theta ^{ n^{(1)} + \alpha -1 } (1-\theta)^{n^{(0)} + \beta -1} } {B(n^{(1)}+\alpha, n^{(0)}+\beta)} \\
+& = Beta(\theta | n^{(1)}+\alpha, n^{(0) + \beta})
 \end{split}
 \end{equation}
 $$
@@ -219,7 +237,14 @@ $$
 然后根据上式求出 $\theta$ 的期望即可：
 
 $$
-\hat {\theta_{Bayes}} = E(\theta) = \frac  {n^{(1)} + \alpha} {n^{(1)} + n^{(0)} + \alpha + \beta} = \frac {17} {30} = 0.567
+\begin{equation}
+\begin{split}
+\hat {\theta_{Bayes}} &= E(\theta) \\
+& = \frac  {n^{(1)} + \alpha} {n^{(1)} + n^{(0)} + \alpha + \beta} \\
+& = \frac {17} {30} \\
+& = 0.567
+\end{split}
+\end{equation}
 $$
 
 可以看出贝叶斯估计得出来的值比最大后验估计又更接近了0.5，如下图所示[2]：
