@@ -12,9 +12,9 @@ image:
 
 逻辑回归(Logistic Regression)是机器学习中十分常用的一种模型,属于广义线性模型.在互联网领域得到了广泛的应用,尤其是在广告系统中用来估计CTR.本文主要介绍逻辑回归的模型形式,求解策略和算法.接着介绍逻辑回归的最大似然估计,最后说明为什么逻辑回归要采用sigmoid函数做变换.
 
------------- 
+------------
 
-## 模型
+#### 1 模型
 
 我们知道,线性回归模型输出的是一个连续值,如果我们要输出的不是连续值,该怎么做呢?假设我们的输出只有 1 和 -1.
 逻辑回归模型形式上是把线性回归模型做一个变换,让其输出是一个 0 到 1 之间的数,假设我们的变换叫做 $$g(z) $$,然后在变换后的结果上定义一个决策函数,如果:
@@ -30,13 +30,13 @@ $$
 其中 $$z$$ 就是我们前面讲到的线性模型:
 
 $$
-z = \mathbf{w}^T \mathbf{x} 
+z = \mathbf{w}^T \mathbf{x}
 $$
 
 而变换采用了逻辑变换,也叫 $$sigmoid$$ 变换,其形式为:
 
 $$
-g(z) = \frac {1}{1 + e^{-z}} 
+g(z) = \frac {1}{1 + e^{-z}}
 $$
 
 通过上面几个式子进行一个简单的推导,我们的决策函数变为:
@@ -52,7 +52,7 @@ $$
 最后我们的逻辑回归模型就变成:
 
 $$
-h_{\mathbf{w}}(\mathbf{x}) = g_{\mathbf{w}}(\mathbf{x}) = \frac {1}{1 + e^{- \mathbf{w}^T \mathbf{x}}} 
+h_{\mathbf{w}}(\mathbf{x}) = g_{\mathbf{w}}(\mathbf{x}) = \frac {1}{1 + e^{- \mathbf{w}^T \mathbf{x}}}
 $$
 
 我们看看 sigmoid 函数有什么特点,从下面的图形可以看出,这个函数是个连续光滑函数,定义域是 $$(-\infty,\infty)$$,值域是 $$[0,1]$$,在 0 附近函数的区分度很高($$y$$的值变化比较明显),越往两边,函数的区分度就越低($$y$$的值变化越来越不明显).
@@ -90,9 +90,7 @@ $$
 
 > **注意:** 对概率密度不是倒置钟形的信号,$$sigmoid$$变换不一定是最优的.
 
-
-
-## 策略
+#### 2 策略
 
 有了逻辑回归模型的形式,我们仍然需要根据我们观测到的数据集求出模型里未知的 $$\mathbf{w}$$,为此我们仍然采用定义损失函数,并最小化损失函数的策略.此时我们不能用线性回归里采用的平方损失函数,因为此时在逻辑变换的基础上,改函数不再是一个凸函数,会给我们的极小化造成相当大的麻烦.为此,我们定义另外一个损失函数,逻辑斯谛损失(也叫交叉熵 Cross Entropy):
 
@@ -103,11 +101,12 @@ $$
 我们先看看我们的的决策函数:
 
 $$
-y=1 \qquad \text{if} \qquad z=\mathbf{w}^T \mathbf{x} > 0
-$$
-
-$$
+\begin{equation*}
+\begin{split}
+y=1 \qquad \text{if} \qquad z=\mathbf{w}^T \mathbf{x} > 0 \\
 y=-1 \qquad \text{if} \qquad z=\mathbf{w}^T \mathbf{x} < 0
+\end{split}
+\end{equation*}
 $$
 
 检验一下我们的损失函数:
@@ -115,36 +114,39 @@ $$
 当 $$y=1$$时:
 
 $$
-\text{if} \qquad z \to \infty, \qquad g(yz) \to 1, \qquad cost \to 0
-$$
-
-$$
+\begin{equation*}
+\begin{split}
+\text{if} \qquad z \to \infty, \qquad g(yz) \to 1, \qquad cost \to 0 \\
 \text{if} \qquad z \to -\infty, \qquad g(yz) \to 0, \qquad cost \to \infty
+\end{split}
+\end{equation*}
 $$
 
 当 $$y=-1$$时:
 
 $$
-\text{if} \qquad z \to \infty, \qquad g(yz) \to 0, \qquad cost \to \infty
-$$
-
-$$
+\begin{equation*}
+\begin{split}
+\text{if} \qquad z \to \infty, \qquad g(yz) \to 0, \qquad cost \to \infty \\
 \text{if} \qquad z \to -\infty, \qquad g(yz) \to 1, \qquad cost \to 0
+\end{split}
+\end{equation*}
 $$
 
 所以最后我们总的损失函数为:
 
 $$
-L(\mathbf{w}) = -\frac {1}{m} \sum_{i=1}^m \ln g(y \mathbf{w}^T \mathbf{x} ) =  \frac {1}{m} \sum_{i=1}^m \ln ( 1 + e^{-y^i \mathbf{w}^T \mathbf{x}^i})
+\begin{equation*}
+\begin{split}
+L(\mathbf{w}) &= -\frac {1}{m} \sum_{i=1}^m \ln g(y \mathbf{w}^T \mathbf{x} ) \\
+&=  \frac {1}{m} \sum_{i=1}^m \ln ( 1 + e^{-y^i \mathbf{w}^T \mathbf{x}^i})
+\end{split}
+\end{equation*}
 $$
 
+> **注意:** 这里采用的损失函数是经验损失,不是结构损失,不包括正规化项
 
-> **注意:** 这里采用的损失函数是经验损失,不是结构损失,不包括正规化项.
-
-
-
-
-## 算法
+#### 3 算法
 
 我们仍然采用梯度下降来求解 $$\mathbf{w}$$.
 先求 $$L(\mathbf{w})$$ 的梯度向量:
@@ -161,13 +163,13 @@ $$
 \mathbf{w}: = \mathbf{w} - \alpha \nabla (\mathbf{w})
 $$
 
-### 拟牛顿法
+**拟牛顿法**
 
 因为梯度下降收敛太慢,一般工程上都不会直接采用梯度下降来解这个问题,工程上会采用拟牛顿法来求解.
 在[数学基础之微积分][2]的文章里,讲到了牛顿法,它的搜索方向是牛顿方向 $$-H^{-1}_k g_k$$,需要计算Hessian矩阵的逆,往往实际工程中Hessian矩阵根本就不可逆,或者逆计算起来工作量也相当大.所以有人提出了一系列算法,用一些别的矩阵来近似Hessian矩阵或者Hessian矩阵的逆,叫拟牛顿法.最有名的就是 DFP 和 BFGS 系列算法.这里拿BFGS举例.
 
 
-### 拟牛顿条件
+**拟牛顿条件**
 
 设 $$k+1$$ 次迭代以后,将目标函数 $$f(x)$$ 在 $$x^{k+1}$$ 处泰勒展开:
 
@@ -177,7 +179,7 @@ $$
 
 两边同时求导:
 
-$$ 
+$$
 \nabla f(x) = g = g_{k+1} + H_{k+1}(x-x^{k+1})
 $$
 
@@ -187,8 +189,7 @@ $$
 g_{k+1} - g_k = H_{k+1}(x^{k+1} - x^k)
 $$
 
-记$$s_k = x^{k+1} -x^k,y_k = g_{k+1} - g_k$$
-则上面的式子变为:
+记$$s_k = x^{k+1} -x^k,y_k = g_{k+1} - g_k$$, 则上面的式子变为:
 
 $$
 y_k = H_{k+1} s_k
@@ -208,9 +209,7 @@ $$
 y_k = B_{k+1} s_k
 $$
 
-
-
-### BFGS
+**BFGS**
 
 BFGS算法是以四个发明者 Broyden,Fletcher,Goldfarb 和 Shanno 的首字母命名的.
 假设我们近似矩阵的迭代公式为:
@@ -235,7 +234,7 @@ $$
 
 $$
 \alpha = \frac {1} {y_k^T s_k},\beta = -\frac {1} {s_k^T B_k s_k}
-$$ 
+$$
 
 于是:
 
@@ -254,9 +253,7 @@ $$
 
 但实际工程中,我们的矩阵会很大,内存根本放不下,所以有了后来的Limited-memory BFGS,更详细的参考[这里][3].
 
-
-
-## 最大似然估计
+#### 4 最大似然估计
 
 上面提到了逻辑斯谛损失,为什么我们要定义这样一个损失呢?我们从另一方面来解释,我们假设我们的模型最后分别以一定概率输出 1 和 -1,假设输出 1 的概率是 $$p$$,输出 -1 的概率是 $$1-p$$,即:
 
@@ -273,17 +270,27 @@ $$
 然后很快就能求出:
 
 $$
-p = \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}} 
+p = \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}}
 $$
 
 所以:
 
 $$
-p(y=1|\mathbf{x}) = \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}} = \frac {1}{1 + e^{-y \mathbf{w}^T \mathbf{x}}}
+\begin{equation*}
+\begin{split}
+p(y=1|\mathbf{x}) &= \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}} \\
+&= \frac {1}{1 + e^{-y \mathbf{w}^T \mathbf{x}}} \\
+\end{split}
+\end{equation*}
 $$
 
 $$
-p(y=-1|\mathbf{x}) = 1 - \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}} = \frac {1}{1 + e^{-y \mathbf{w}^T \mathbf{x}}}
+\begin{equation*}
+\begin{split}
+p(y=-1|\mathbf{x}) &= 1 - \frac {1}{1 + e^{-\mathbf{w}^T \mathbf{x}}} \\
+&= \frac {1}{1 + e^{-y \mathbf{w}^T \mathbf{x}}}
+\end{split}
+\end{equation*}
 $$
 
 所以无论$$y=1$$还是$$y=-1$$,概率都可以写成统一的形式:
@@ -314,13 +321,18 @@ $$
 我们要找到一个 $$\mathbf{w}$$,让上面的式子最大,其中第一项连乘跟 $$\mathbf{w}$$ 无关,两边同时取对数:
 
 $$
-\large max_{\mathbf{w}} \ln p_{\mathbf{w}}(D) = max_{\mathbf{w}}  \sum_{i=1}^m  \ln \frac {1}{1 + e^{- y \mathbf{w}^T \mathbf{x}^i}} = max_{\mathbf{w}} \sum_{i=1}^m -\ln (1 + e^{-y \mathbf{w}^T \mathbf{x}^i}) \\
-= min_{\mathbf{w}} \sum_{i=1}^m \ln (1 + e^{-y \mathbf{w}^T \mathbf{x}^i})
+\begin{equation*}
+\begin{split}
+\displaystyle \large max_{\mathbf{w}} \ln p_{\mathbf{w}}(D) &= max_{\mathbf{w}}  \sum_{i=1}^m  \ln \frac {1}{1 + e^{- y \mathbf{w}^T \mathbf{x}^i}} \\
+\displaystyle &= max_{\mathbf{w}} \sum_{i=1}^m -\ln (1 + e^{-y \mathbf{w}^T \mathbf{x}^i}) \\
+\displaystyle &= min_{\mathbf{w}} \sum_{i=1}^m \ln (1 + e^{-y \mathbf{w}^T \mathbf{x}^i})
+\end{split}
+\end{equation*}
 $$
 
 得到了跟上面定义损失函数,然后极小化损失函数一样的结论.
 
-## 逻辑回归的优点
+#### 5 逻辑回归的优点
 
 1. LR无论是训练还是预测,计算复杂度都很低,尤其数据规模很大时有优势.
 2. 不用担心特征之间的关联性.
@@ -328,7 +340,7 @@ $$
 4. 模型简单,并行化很容易.
 5. 还可以支持在线学习.
 
-## 参考资料
+#### 6 参考资料
 
 1. <http://en.wikipedia.org/wiki/Sigmoid_function>
 2. [Machine Learning](https://class.coursera.org/ml-2012-002)
