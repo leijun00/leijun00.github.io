@@ -126,11 +126,7 @@ $$
 
 #### 7 收敛性证明
 
-假设数据集线性可分, 那么一定存在一个分离超平面能够将数据集完全正确无误的分开, 假设这个超平面记为
-$$
-||\hat {\mathbf{w}^{opt}} || = 1
-$$
-, 即对数据集里所有的点, 都有:
+假设数据集线性可分, 那么一定存在一个分离超平面能够将数据集完全正确无误的分开, 假设这个超平面记为 $$ \|\hat {\mathbf{w}^{opt}} \| = 1 $$ , 即对数据集里所有的点, 都有:
 
 $$
 y^i \hat {\mathbf{w}^{opt}} \cdot \mathbf{x}^i > 0
@@ -167,7 +163,7 @@ $$
 \begin{split}
 \mathbf{w}^{k} \cdot \hat{\mathbf{w}^{opt} } &= \mathbf{w}^{k-1} \cdot \hat{\mathbf{w}^{opt}} + \eta y^i \hat{\mathbf{w}^{opt}} \cdot \mathbf{x}^i \\
 &\geq \mathbf{w}^k \cdot \hat{\mathbf{w}^{opt}} + \eta \gamma \\
-&\geq \mathbf{w}^{k-2} \cdot \hat{\mathbf{w}^{opt}} + 2 \eta \gamma \geq \ldots \\
+&\geq \mathbf{w}^{k-2} \cdot \hat{\mathbf{w}^{opt}} + 2 \eta \gamma \\
 &\geq \ldots \geq k \eta \gamma
 \end{split}
 \end{equation*}
