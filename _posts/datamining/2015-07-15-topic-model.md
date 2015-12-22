@@ -9,7 +9,7 @@ image:
     teaser: /datamining/topic-model/topic_model.png
 ---
 
-XX有大量的商户数据和团购单数据,Topic Model能不能在这方面找到一点应用呢?本文主要介绍用LDA在这方面的应用.
+美团网有大量的商户数据和团购单数据,Topic Model能不能在这方面找到一点应用呢?本文主要介绍用LDA在这方面的应用.
 
 ---------------------------
 
