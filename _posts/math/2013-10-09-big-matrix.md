@@ -291,10 +291,10 @@ $$
 
 ##### 4.1 算法一
 
-假设有一个$$m \times n$$的矩阵$$A$$,其中第$$i$$行第$$j$$列的元素为$$A_{ij}$$. 假设有一个$$n$$为向量$$\mathbf{v}$$,其中第$$j$$个元素为$$\mathbf{v}_j$$. 于是矩阵$$M$$和向量$$\mathbf{v}$$的乘积结果是一个$$m$$维向量$$\mathbf{x}$$,其中第$$i$$个元素$$\mathbf{x}_i$$为: 
+假设有一个$$m \times n$$的矩阵$$A$$,其中第$$i$$行第$$j$$列的元素为$$A_{ij}$$. 假设有一个$$n$$维向量$$\mathbf{v}$$,其中第$$j$$个元素为$$\mathbf{v}_j$$. 于是矩阵$$M$$和向量$$\mathbf{v}$$的乘积结果是一个$$m$$维向量$$\mathbf{x}$$,其中第$$i$$个元素$$\mathbf{x}_i$$为: 
 
 $$
-\mathbf{x}_i = \sum_{j=1}^n A_{ij}\mathbf{v}_j = A_{i1}\mathbf{v}_1 + m_{i2}\mathbf{v}_2 + \cdots +　m_{in}\mathbf{v}_n
+\mathbf{x}_i = \sum_{j=1}^n A_{ij}\mathbf{v}_j = A_{i1}\mathbf{v}_1 + A_{i2}\mathbf{v}_2 + \cdots +　A_{in}\mathbf{v}_n
 $$
 
 如果$$n$$不算太大,向量$$\mathbf{v}$$可以直接放到内存里面,这时候我们采用Map-Reduce的框架来计算的话,Map函数和Reduce函数可以这么设计:
